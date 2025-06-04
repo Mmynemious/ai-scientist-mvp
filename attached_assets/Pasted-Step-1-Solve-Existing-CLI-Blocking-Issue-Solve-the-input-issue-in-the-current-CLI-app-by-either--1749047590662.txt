@@ -1,0 +1,110 @@
+Step 1: Solve Existing CLI Blocking Issue
+
+Solve the input() issue in the current CLI app by either:
+
+Replacing it with a Streamlit or Textual app interface, or
+
+Creating a browser-compatible CLI-like UI using prompt_toolkit or Typer
+
+Ensure the user can still:
+
+Trigger each agent manually
+
+Accept, retry, edit, or inspect results
+
+View a structured pipeline of outputs
+
+Step 2: Build a Research Dashboard
+
+Add a dashboard view where the user can:
+
+Current Session
+See the currently running research session in a visual or tabular view
+
+Inspect outputs from each agent (Thesis, File, Search, etc.)
+
+Download or export the session data as .json
+
+Previous Sessions
+List previous project sessions stored in projects/ folder
+
+Allow selecting a session to:
+
+Resume editing
+
+Re-run agents
+
+Fork into a new session
+
+Use session filenames like project-<uuid>.json for unique traceability.
+
+Step 3: Add Researcher Profile Module
+
+Create a ResearcherProfile object with fields:
+
+name: str
+
+email: str
+
+affiliation: str
+
+research_focus: str
+
+ORCID or PubMed ID: Optional
+
+Store this in profile.json and allow it to auto-fill inputs like ThesisAgent or SearchAgent.
+
+Add CLI or form-based editing of the profile.
+
+Step 4: Transform Text Input Field Into Agent Terminal
+
+Instead of a single input box, build a terminal-style window that:
+
+Shows what each agent is doing step-by-step (e.g., “TrendAgent analyzing patterns…”)
+
+Prints results in styled blocks (bold for result, blue for confidence, red for warnings)
+
+Lets the researcher type commands like:
+
+run searchagent --query "Alzheimer iPSC"
+
+edit agent_3
+
+view project project-abc123.json
+
+This can be done using:
+
+prompt_toolkit in Python
+
+Or a pseudo-terminal in Streamlit using st.code() + st.text_area()
+
+Final Integration Requirements
+
+All agents must still follow RichOutput format with:
+
+python
+Kopieren
+Bearbeiten
+result: str
+confidence: float
+sources: list
+warnings: list
+Each session must save:
+
+Agent outputs
+
+Timestamps
+
+Researcher profile snapshot
+
+Expected Deliverables
+
+A fully interactive terminal-driven dashboard
+
+Current + past research session access
+
+A persistent ResearcherProfile system
+
+Enhanced agent traceability and control
+
+Use only Python. Modularize logic across files. Use streamlit, prompt_toolkit, or textual if needed. Skip all extra comments or explanations — return the full working scaffold.

@@ -57,7 +57,7 @@ export default function Home() {
 
   // Update research question when session loads
   useEffect(() => {
-    if (currentSession) {
+    if (currentSession && 'researchQuestion' in currentSession) {
       setResearchQuestion(currentSession.researchQuestion);
     }
   }, [currentSession]);
