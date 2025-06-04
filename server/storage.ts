@@ -92,6 +92,7 @@ export class MemStorage implements IStorage {
       ...insertResult,
       id,
       timestamp: new Date(),
+      status: insertResult.status || "pending",
     };
     this.agentResults.set(id, result);
     return result;

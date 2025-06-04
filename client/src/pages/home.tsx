@@ -181,8 +181,8 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                <i className="fas fa-brain text-primary text-2xl" />
-                <h1 className="text-xl font-bold text-gray-900">AI Scientist MVP</h1>
+                <i className="fas fa-flask text-primary text-2xl" />
+                <h1 className="text-xl font-bold text-gray-900">HyphoteSys</h1>
               </div>
               <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                 Biomedical Research Assistant

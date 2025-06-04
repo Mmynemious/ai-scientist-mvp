@@ -13,23 +13,23 @@
   --card-foreground: 20 14.3% 4.1%;
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
-  --primary: 207 90% 54%; /* #1976D2 - Material Blue */
-  --primary-foreground: 211 100% 99%;
+  --primary: 231 48% 22%; /* #312E81 - Dark Indigo */
+  --primary-foreground: 0 0% 100%;
   --secondary: 60 4.8% 95.9%;
   --secondary-foreground: 24 9.8% 10%;
-  --accent: 180 84% 38%; /* #00ACC1 - Cyan 600 */
-  --accent-foreground: 0 0% 98%;
+  --accent: 25 100% 55%; /* #F97316 - Clay Orange */
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 207 90% 54%;
+  --ring: 231 48% 22%;
   --radius: 0.5rem;
   
-  /* Custom colors for AI Scientist */
+  /* Custom colors for HyphoteSys */
   --chart-1: 142 70% 45%; /* Success Green */
-  --chart-2: 34 100% 50%; /* Warning Orange */
+  --chart-2: 25 100% 55%; /* Clay Orange */
   --chart-3: 0 84% 60%; /* Error Red */
-  --chart-4: 207 90% 54%; /* Primary Blue */
-  --chart-5: 180 84% 38%; /* Accent Cyan */
+  --chart-4: 231 48% 22%; /* Dark Indigo */
+  --chart-5: 25 100% 60%; /* Light Clay Orange */
 }
 
 .dark {
