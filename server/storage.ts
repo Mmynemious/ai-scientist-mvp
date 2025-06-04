@@ -93,6 +93,7 @@ export class MemStorage implements IStorage {
       id,
       timestamp: new Date(),
       status: insertResult.status || "pending",
+      userFeedback: insertResult.userFeedback || null,
     };
     this.agentResults.set(id, result);
     return result;
@@ -128,6 +129,7 @@ export class MemStorage implements IStorage {
       ...insertFile,
       id,
       uploadedAt: new Date(),
+      parsedContent: insertFile.parsedContent || null,
     };
     this.uploadedFiles.set(id, file);
     return file;
