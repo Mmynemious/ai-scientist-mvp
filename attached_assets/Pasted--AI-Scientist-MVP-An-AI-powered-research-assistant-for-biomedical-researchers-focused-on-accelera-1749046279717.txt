@@ -1,0 +1,131 @@
+🧠 AI Scientist MVP
+An AI-powered research assistant for biomedical researchers, focused on accelerating literature analysis, hypothesis generation, and experiment design in an interactive, human-in-the-loop system.
+
+🧪 Features
+Core Functionality
+Agentic Workflow: Step-by-step execution of agents, each focused on a research function
+
+Human-Centered Interaction: Users can review, edit, retry, or ask for clarification at every step
+
+Research Question Parsing: Extract variables and keywords from user input
+
+Paper Search & Summarization: Pull from ArXiv, summarize papers with LLM
+
+Trend Analysis: Identify common variables, gaps, and contradictions across sources
+
+Hypothesis Generation: Propose research questions and experimental directions
+
+Pipeline Mapping: Present all steps in a visual, structured format (Markdown/Mermaid)
+
+Session Features
+SessionMemory Object: Persistent memory shared across agents
+
+Project Saving: Save session as /projects/{uuid}.json
+
+Standardized Output: All agent results formatted as RichOutput
+
+Biomass Module (MVP 2)
+BiomassInputAgent: Accepts sample/medium input
+
+CompositionAgent: Parses molecular makeup
+
+PathwayAgent: Suggests biological pathways
+
+ConstraintAgent: Flags nutrient limits or metabolic bottlenecks
+
+GrowthAgent: Suggests optimizations
+
+BiomassMapAgent: Generates system map
+
+🧱 Enhanced JSON Output
+json
+Kopieren
+Bearbeiten
+{
+  "agent": "TrendAgent",
+  "result": "Mitochondrial dysfunction repeatedly observed",
+  "confidence": 0.85,
+  "sources": ["arXiv:2304.5678", "PMID:34929012"],
+  "warnings": ["Contradictory result in 2021 study"],
+  "timestamp": "2025-06-04T14:23:00",
+  "user_feedback": "accepted"
+}
+🧰 Technology Stack
+Layer	Tool
+Language	Python
+CLI UI	input()-based CLI menu
+PDF Parsing	PyMuPDF (fitz)
+Web Search	requests (ArXiv API)
+Persistence	uuid + local JSON files
+LLM	Stubbed (OpenAI or OpenRouter later)
+JSON Parsing	json
+
+🧠 Setup Instructions
+1. Install Dependencies
+Use Replit (no install needed) or run locally with:
+
+bash
+Kopieren
+Bearbeiten
+pip install requests pymupdf
+2. Run the App
+bash
+Kopieren
+Bearbeiten
+python main.py
+🧭 Project Structure
+bash
+Kopieren
+Bearbeiten
+ai_scientist_mvp/
+├── main.py                 # CLI runner with menu & agent flow
+├── agents.py               # Agent class definitions
+├── core.py                 # RichOutput, SessionMemory
+├── projects/               # Saved sessions as .json
+└── requirements.txt        # (Optional) Dependency list
+🧠 Key Features Details
+Agent Tabs
+Tab Number	Agent	Description
+[1]	ThesisAgent	Extracts key variables from question
+[2]	FileAgent	Parses PDFs or CSVs
+[3]	SearchAgent	Pulls ArXiv papers using keyword search
+[4]	ReaderAgent	Summarizes papers with LLM (stubbed)
+[5]	TrendAgent	Detects patterns, contradictions
+[6]	HypothesisAgent	Suggests experiments or directions
+[7]	MapAgent	Outputs a visual/textual hypothesis pipeline
+
+Memory Object Format
+python
+Kopieren
+Bearbeiten
+SessionMemory.data = {
+  "agent_1": "iPSC, neurodegeneration",
+  "agent_2": "Parsed 3 PDFs",
+  "agent_3": "2 papers matched from ArXiv",
+  ...
+}
+🧪 Development Guidelines
+All agent outputs use RichOutput(result, confidence, sources, warnings)
+
+Agents are modular, class-based, and live in agents.py
+
+All agent runs are triggered manually via CLI tabs
+
+Users can edit, retry, or inspect reasoning after each step
+
+No automatic multi-agent execution — it’s fully user-controlled
+
+Sessions are saved locally using UUID-based filenames
+
+🚀 Deployment Guide
+Push to GitHub
+Initialize Git repo in Replit
+
+Push files to ai-scientist-mvp on GitHub
+
+Convert to GUI (Optional, for Vercel)
+Replace CLI interface with a Streamlit app
+
+Export each agent as a form/tab
+
+Deploy via Streamlit Cloud or wrap with Next.js + deploy to Vercel
